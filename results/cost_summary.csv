@@ -1,0 +1,4 @@
+system,im_size,params_M,flops_gflops_per_img,latency_ms_b64,vram_gb_inference_b64,fid_200v200_mean,fid_200v200_std,n_seeds,wall_time_train_h_per_class,notes
+OrGANiCells,64,4.2,0.77,0.68,0.43,254.21,31.82,5,,DCGAN+R1 reg; ET07 300ep ckpts; re-measured 2026-05-14 same protocol as B5+FastGAN
+B5_StyleGAN2_Ada,64,22.24,7.5,3.79,1.57,59.6,11.9,3,23.5,FLOPs estimado analitico; Python 3.8 + torch 1.9 ambiente segregado
+FastGAN64,64,28.21,7.566,1.212,0.783,45.29,4.32,3,2.57,FLOPs medido thop; patch im_size=64 dedicado; 25k iter
