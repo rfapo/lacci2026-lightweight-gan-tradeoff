@@ -1,0 +1,27 @@
+{
+  "system": "stylegan2ada",
+  "params_M": 22.243608,
+  "warmup": 10,
+  "trials": 50,
+  "device": "NVIDIA GeForce RTX 3050",
+  "torch": "1.9.1+cu111",
+  "measurements": {
+    "b1": {
+      "batch": 1,
+      "ms_per_batch_mean": 8.662429340147355,
+      "ms_per_batch_std": 0.1631339854451065,
+      "ms_per_img": 8.662429340147355,
+      "vram_peak_mb": 127.5904
+    },
+    "b64": {
+      "batch": 64,
+      "ms_per_batch_mean": 241.89951454020047,
+      "ms_per_batch_std": 0.28319363354672117,
+      "ms_per_img": 3.7796799146906324,
+      "vram_peak_mb": 1570.873856
+    }
+  },
+  "published_b64_ms_per_img": 3.79,
+  "b64_relative_deviation": 0.0027229776541867223,
+  "b1_over_b64_ratio": 2.291842043681727
+}
