@@ -71,17 +71,21 @@ python analysis/kid_and_resampling.py --verify
 
 ## Headline results
 
-| System | Params | GFLOPs/img | Latency (ms, b=64) | VRAM (GB) | FID 200v200 | KID |
-|---|---|---|---|---|---|---|
-| OrGANiCells | 4.2 M | 0.77 | 0.68 | 0.43 | 254.21 ± 31.82 | 0.290 |
-| StyleGAN2-Ada | 22.24 M | ~7.5 | 3.79 | 1.57 | 59.6 ± 11.9 | 0.0238 |
-| **FastGAN-64** | 28.21 M | 7.57 | 1.21 | 0.78 | **45.29 ± 4.32** | **0.0080** |
+| System | Params | GFLOPs/img | Lat. (ms, b=1) | Lat. (ms, b=64) | VRAM (GB) | FID 200v200 | KID |
+|---|---|---|---|---|---|---|---|
+| OrGANiCells | 2.65 M | 0.77 | 0.58 | 0.31 | 0.43 | 254.21 ± 31.82 | 0.290 |
+| StyleGAN2-Ada | 22.24 M | ~7.5 | 8.66 | 3.78 | 1.57 | 59.55 ± 15.85 | 0.0238 |
+| **FastGAN-64** | 28.21 M | 7.57 | 5.07 | 1.22 | 0.84 | **45.29 ± 4.32** | **0.0080** |
 
 All measurements on a single NVIDIA RTX 3050 8 GB. FID and KID are lower-is-better. The per-class ordering is identical under both metrics in 8/8 classes.
 
+Parameters, FLOPs, latency and VRAM are generator-only, since the discriminator is not executed at inference. The FID tolerance is the standard deviation over all training runs of the system (40 for OrGANiCells, 24 for the other two).
+
+Three entries supersede the submitted version of the paper, and the camera-ready response to the reviewers documents why: OrGANiCells latency (0.31, not 0.68 ms/img) and FastGAN-64 peak VRAM (0.84, not 0.78 GB) were re-measured under the matched protocol, and the OrGANiCells parameter count (2.65 M, not 4.2 M) is now generator-only like the other two rows. Re-run `analysis/latency_b1_b64.py` to reproduce the first two.
+
 ## Scope and caveats
 
-These results are specific to one operating point: BloodMNIST at 64 × 64, 8 classes, 3 seeds, one consumer GPU, inference at batch 64. Each system is trained under its own reference recipe rather than a shared compute budget, so the reported gap is a property of published configurations, not of architectures at matched compute. FID and KID are computed on Inception-V3 features trained on natural images and therefore measure distributional similarity in a generic feature space, not clinical realism. Downstream classifier utility was not measured. See the Limitations section of the paper.
+These results are specific to one operating point: BloodMNIST at 64 × 64, 8 classes, 88 training runs (3 seeds per system, 5 for OrGANiCells), one consumer GPU. Each system is trained under its own reference recipe rather than a shared compute budget, so the reported gap is a property of published configurations, not of architectures at matched compute. FID and KID are computed on Inception-V3 features trained on natural images and therefore measure distributional similarity in a generic feature space, not clinical realism. Downstream classifier utility was not measured. See the Limitations section of the paper.
 
 ## Dataset
 

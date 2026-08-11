@@ -32,9 +32,9 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # Well-separated luminances (~25%, ~55%, ~5% grey) plus distinct markers,
 # so the figure stays readable when printed in black and white.
 SYSTEMS = {
-    "OrGANiCells":      {"lat": 0.68,  "fid": 254.21, "std": 31.82, "color": "#2E7D32", "marker": "o", "pareto": True},
-    "StyleGAN2-Ada":    {"lat": 3.79,  "fid": 59.6,  "std": 11.9, "color": "#9E9E9E", "marker": "X", "pareto": False},
-    "FastGAN-64 (adapted)": {"lat": 1.212, "fid": 45.29, "std": 4.32, "color": "#0D2C54", "marker": "s", "pareto": True},
+    "OrGANiCells":      {"lat": 0.309, "fid": 254.21, "std": 31.82, "color": "#2E7D32", "marker": "o", "pareto": True},
+    "StyleGAN2-Ada":    {"lat": 3.780, "fid": 59.55, "std": 15.85, "color": "#9E9E9E", "marker": "X", "pareto": False},
+    "FastGAN-64 (adapted)": {"lat": 1.215, "fid": 45.29, "std": 4.32, "color": "#0D2C54", "marker": "s", "pareto": True},
 }
 
 fig, ax = plt.subplots(figsize=(6.0, 4.2), dpi=300)
@@ -54,12 +54,12 @@ for name, s in SYSTEMS.items():
         label=label, zorder=3,
     )
 
-ax.annotate("OrGANiCells\n4.2 M params\n0.77 GFLOPs",
-            xy=(0.68, 254.21), xytext=(0.42, 215),
+ax.annotate("OrGANiCells\n2.65 M params\n0.77 GFLOPs",
+            xy=(0.309, 254.21), xytext=(0.30, 205),
             fontsize=8, ha="center",
             arrowprops=dict(arrowstyle="-", color="#2E7D32", lw=0.6, alpha=0.6))
 ax.annotate("FastGAN-64\n28.21 M params\n7.57 GFLOPs",
-            xy=(1.212, 45.29), xytext=(1.35, 8),
+            xy=(1.215, 45.29), xytext=(1.35, 8),
             fontsize=8, ha="left",
             arrowprops=dict(arrowstyle="-", color="#0D2C54", lw=0.6, alpha=0.6))
 ax.annotate("StyleGAN2-Ada\n22.24 M params\n~7.5 GFLOPs",

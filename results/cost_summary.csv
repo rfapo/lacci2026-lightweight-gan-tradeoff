@@ -1,4 +1,4 @@
-system,im_size,params_M,flops_gflops_per_img,latency_ms_b64,vram_gb_inference_b64,fid_200v200_mean,fid_200v200_std,n_seeds,wall_time_train_h_per_class,notes
-OrGANiCells,64,4.2,0.77,0.68,0.43,254.21,31.82,5,,DCGAN+R1 reg; ET07 300ep ckpts; re-measured 2026-05-14 same protocol as B5+FastGAN
-B5_StyleGAN2_Ada,64,22.24,7.5,3.79,1.57,59.6,11.9,3,23.5,FLOPs estimado analitico; Python 3.8 + torch 1.9 ambiente segregado
-FastGAN64,64,28.21,7.566,1.212,0.783,45.29,4.32,3,2.57,FLOPs medido thop; patch im_size=64 dedicado; 25k iter
+system,im_size,params_M,flops_gflops_per_img,latency_ms_b1,latency_ms_b64,vram_gb_inference_b64,fid_200v200_mean,fid_200v200_std,n_seeds,n_runs,wall_time_train_h_per_run,notes
+OrGANiCells,64,2.649091,0.77,0.5848,0.3087,0.4264,254.21,31.82,5,40,1.0,generator only; DCGAN+R1; 300 epochs/run; latency re-measured 2026-08-10 in the same session as b=1 (supersedes the 0.68 ms/img reported at submission)
+B5_StyleGAN2_Ada,64,22.243608,7.5,8.6624,3.7797,1.5709,59.55,15.85,3,24,23.5,generator (G_ema) only; FLOPs analytic estimate; Python 3.8 + torch 1.9.1 pinned environment; 300 kimg/run
+FastGAN64,64,28.21146,7.566,5.0741,1.2151,0.8390,45.29,4.32,3,24,2.57,generator only; FLOPs measured with thop; dedicated im_size=64 patch; 25k iter/run; peak VRAM 0.84 GB supersedes the 0.78 GB reported at submission
