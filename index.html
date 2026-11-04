@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Cost–Quality Trade-off Study of Lightweight GANs for 64 × 64 Hematological Synthesis</title>
+<meta name="description" content="Oral presentation slides and reproducible artifacts for the LA-CCI 2026 paper on the cost–quality trade-off of lightweight GANs at 64 × 64.">
+<style>
+  :root{
+    --navy:#344068; --blue:#2683C6; --green:#3E8853;
+    --ink:#262626; --grey:#59595f; --pale:#f4f6f9; --edge:#dce2ea; --bg:#ffffff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --navy:#8da3d6; --blue:#5aa9e6; --green:#6cbf8a;
+      --ink:#e8ecf2; --grey:#a9b2c1; --pale:#1b2232; --edge:#2b3447; --bg:#121725;
+    }
+  }
+  :root[data-theme="dark"]{
+    --navy:#8da3d6; --blue:#5aa9e6; --green:#6cbf8a;
+    --ink:#e8ecf2; --grey:#a9b2c1; --pale:#1b2232; --edge:#2b3447; --bg:#121725;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;}
+  .wrap{max-width:none;width:min(1060px,92vw);margin:0 auto;padding:0 0 64px}
+  header{border-bottom:3px solid var(--blue);padding:44px 0 26px;margin-bottom:34px}
+  .venue{color:var(--blue);font-weight:700;font-size:.82rem;letter-spacing:.09em;
+         text-transform:uppercase;margin:0 0 12px}
+  h1{font-size:clamp(1.45rem,3.3vw,2.1rem);line-height:1.25;margin:0 0 16px;color:var(--navy)}
+  .authors{margin:0 0 4px;font-size:1.02rem}
+  .affil{margin:0;color:var(--grey);font-size:.93rem}
+  h2{font-size:1.14rem;color:var(--navy);margin:38px 0 12px;
+     border-left:4px solid var(--blue);padding-left:11px}
+  p{margin:0 0 14px}
+  a{color:var(--blue)}
+  .lead{font-size:1.06rem}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0 6px}
+  .btn{display:inline-block;padding:11px 19px;border-radius:7px;text-decoration:none;
+       font-weight:700;font-size:.95rem;border:1.5px solid var(--blue)}
+  .btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .btn.ghost{color:var(--blue);background:transparent}
+  .viewer{margin-top:18px;border:1px solid var(--edge);border-radius:9px;overflow:hidden;
+          background:var(--pale)}
+  .viewer embed,.viewer iframe{display:block;width:100%;height:min(70vh,620px);border:0}
+  .note{background:var(--pale);border:1px solid var(--edge);border-radius:9px;
+        padding:15px 18px;font-size:.92rem;color:var(--grey)}
+  .cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:6px 0 4px}
+  .card{background:var(--pale);border:1px solid var(--edge);border-radius:9px;padding:15px 17px}
+  .card h3{margin:0 0 7px;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;color:var(--blue)}
+  .card p{margin:0;font-size:.93rem}
+  .big{font-size:1.42rem;font-weight:700;color:var(--navy);display:block;margin-bottom:3px}
+  .tablewrap{overflow-x:auto;margin:6px 0 10px}
+  table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:470px}
+  th{background:var(--navy);color:#fff;text-align:left;padding:9px 11px;font-size:.84rem;
+     letter-spacing:.03em}
+  td{padding:9px 11px;border-bottom:1px solid var(--edge)}
+  tr:nth-child(even) td{background:var(--pale)}
+  td.num{text-align:right;font-variant-numeric:tabular-nums}
+  .win{color:var(--green);font-weight:700}
+  code{background:var(--pale);border:1px solid var(--edge);border-radius:4px;
+       padding:1px 5px;font-size:.88em}
+  footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--edge);
+         color:var(--grey);font-size:.87rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="venue">IEEE LA-CCI 2026 · Lima, Peru · Paper 69 · Oral presentation</p>
+  <h1>A Cost–Quality Trade-off Study of Lightweight Generative Adversarial Networks for 64 × 64 Hematological Synthesis</h1>
+  <p class="authors">Rodrigo F. A. P. Oliveira · Carmelo J. A. Bastos Filho</p>
+  <p class="affil">Escola Politécnica de Pernambuco, Universidade de Pernambuco, Recife, Brazil</p>
+</header>
+
+<p class="lead">Most comparisons of lightweight medical GANs pit one custom system against
+StyleGAN2-Ada, two at a time. That design can rank the two, but it cannot test whether the
+heavy baseline belongs on the cost–quality curve at all. We add a third lightweight system
+and find that it does not.</p>
+
+<div class="actions">
+  <a class="btn primary" href="presentation/LACCI2026_paper69_presentation.pdf">Download the slides (PDF)</a>
+  <a class="btn ghost" href="https://github.com/rfapo/lacci2026-lightweight-gan-tradeoff">Code, protocol and per-class results</a>
+</div>
+
+<div class="viewer">
+  <embed src="presentation/LACCI2026_paper69_presentation.pdf#view=FitH" type="application/pdf">
+</div>
+
+<h2>What the study found</h2>
+
+<div class="cards">
+  <div class="card">
+    <h3>The result</h3>
+    <p><span class="big">8 of 8 classes</span>FastGAN-64 attains the lowest FID in every class,
+       faster and on less inference VRAM than StyleGAN2-Ada. Parameter count is the one axis
+       it concedes.</p>
+  </div>
+  <div class="card">
+    <h3>The method</h3>
+    <p><span class="big">≈ 62 GPU-hours</span>A two-system comparison could not have shown this.
+       With the released patch, adding a third system costs about a weekend of compute.</p>
+  </div>
+  <div class="card">
+    <h3>The setting</h3>
+    <p><span class="big">8 GB consumer GPU</span>Every number was produced on a single
+       NVIDIA RTX 3050, at roughly a millisecond per generated image.</p>
+  </div>
+</div>
+
+<h2>Per-class FID 200v200</h2>
+<p>Mean ± standard deviation over training seeds; lower is better. Grand means over all runs
+   (40 for OrGANiCells, 24 for each of the others).</p>
+
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Class</th><th>OrGANiCells</th><th>StyleGAN2-Ada</th><th>FastGAN-64</th></tr></thead>
+  <tbody>
+    <tr><td>basophil</td><td class="num">298.79 ± 24.55</td><td class="num">54.57 ± 1.24</td><td class="num win">48.93 ± 0.24</td></tr>
+    <tr><td>eosinophil</td><td class="num">219.24 ± 9.04</td><td class="num">52.76 ± 11.03</td><td class="num win">41.80 ± 1.15</td></tr>
+    <tr><td>erythroblast</td><td class="num">233.90 ± 13.16</td><td class="num">73.94 ± 23.80</td><td class="num win">47.23 ± 0.08</td></tr>
+    <tr><td>ig</td><td class="num">239.70 ± 14.25</td><td class="num">49.67 ± 1.23</td><td class="num win">48.42 ± 1.12</td></tr>
+    <tr><td>lymphocyte</td><td class="num">283.20 ± 22.53</td><td class="num">66.71 ± 19.03</td><td class="num win">42.73 ± 0.54</td></tr>
+    <tr><td>monocyte</td><td class="num">243.64 ± 12.20</td><td class="num">57.03 ± 3.15</td><td class="num win">50.87 ± 2.38</td></tr>
+    <tr><td>neutrophil</td><td class="num">229.83 ± 11.48</td><td class="num">51.62 ± 6.94</td><td class="num win">39.86 ± 0.50</td></tr>
+    <tr><td>platelet</td><td class="num">285.39 ± 9.16</td><td class="num">70.11 ± 29.45</td><td class="num win">42.47 ± 5.87</td></tr>
+    <tr><td><strong>Grand mean</strong></td><td class="num"><strong>254.21 ± 31.82</strong></td><td class="num"><strong>59.55 ± 15.85</strong></td><td class="num win"><strong>45.29 ± 4.32</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Scope of the claim</h2>
+<p>The result holds at the operating point measured: BloodMNIST 64 × 64, eight classes,
+   88 training runs, one consumer GPU, with each system under its own published reference
+   recipe rather than a matched compute budget. It is not a claim about the lightweight regime
+   in general, and nothing here contradicts the documented advantages of StyleGAN2-Ada at
+   256 × 256 and above. FID and KID are computed on Inception-V3 features trained on natural
+   images, so <strong>no metric reported here establishes clinical realism</strong>, and
+   downstream classifier utility was not measured.</p>
+
+<h2>Reproducing the numbers</h2>
+<p>The repository contains the FastGAN-64 patch (the reference implementation hardcodes
+   <code>im_size &gt;= 256</code>), the matched FID 200v200 protocol, the robustness analyses
+   added for the camera-ready version, and the per-class CSV results behind every table in
+   the paper. See the
+   <a href="https://github.com/rfapo/lacci2026-lightweight-gan-tradeoff#readme">README</a>.</p>
+
+<h2>Image credits in the slides</h2>
+<div class="note">
+  <p>Photographs in the slide deck are reproduced under their own licences:
+     clinical laboratory and remote-care photographs, U.S. Navy, public domain;
+     microscopy photograph, Nenad Stojkovic, CC BY 2.0;
+     bone-marrow aspirate smear, Ed Uthman, CC BY 2.0;
+     COVID-19 blood-film lymphocyte anomalies, Karapetyan et&nbsp;al.,
+     <em>Heliyon</em> 10 (2024) e24527, CC BY 4.0. The automated microscope photograph is
+     courtesy of PickCells, at Hospital do Câncer de Pernambuco.</p>
+  <p style="margin:10px 0 0">This web copy of the deck differs in one figure from the version
+     shown at the conference, which used a copyrighted journal figure under academic citation.</p>
+</div>
+
+<footer>
+  <p>Code and protocol released under the licence in the repository.
+     Correspondence: <a href="mailto:rfapo@ecomp.poli.br">rfapo@ecomp.poli.br</a>.
+     To appear in the LA-CCI 2026 proceedings and on IEEE Xplore.</p>
+</footer>
+
+</div>
+</body>
+</html>
