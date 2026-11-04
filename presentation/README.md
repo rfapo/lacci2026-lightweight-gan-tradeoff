@@ -3,7 +3,7 @@
 Slides for the oral presentation of the paper at IEEE LA-CCI 2026 (Lima, Peru,
 November 2026), paper 69.
 
-`LACCI2026_paper69_presentation.pdf` — 14 slides.
+`LACCI2026_paper69_presentation.pdf` — 15 slides.
 
 A rendered page with the deck embedded is published at
 <https://rfapo.github.io/lacci2026-lightweight-gan-tradeoff/>.
